@@ -1,0 +1,97 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+/*TableView{
+    -fx-background-color: green;
+}*/
+
+/*VBox{
+    -fx-background-color: #FFFFFF;
+}*/
+
+
+TableView{
+    -fx-base: #00B0F3;
+    -fx-control-inner-background: #FAFAFA;
+    /*-fx-background-color: #FFFFFF;*/
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 10 10 10 10;
+    -fx-font-size: 13;
+    
+    
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #CADBF9;
+/*    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+    */-fx-text-fill: #32425A;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: black;
+}
+
+
+HBox.first{
+    -fx-background-color: #43556A;
+}
+
+
+JFXButton{
+    -fx-text-fill: white;
+    -fx-font-family: Tahoma;
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+    -fx-background-color: #266B9B;
+}
+
+.buttonChucNang{
+    -fx-background-color: #43556A;
+    -fx-text-fill: white;
+
+}
+
+.buttonChucNang:hover{
+    -fx-background-color: #CADBF9;
+    
+}
+
+JFXButton:hover{
+    -fx-background-color: #5C97EB;
+}
+/*.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}*/
+
+.buttonQuayLai{
+    -fx-border-color: white;
+    -fx-padding: 5 10 5 10;
+}
+
+.cb{
+    -fx-alignment: CENTER;
+    -fx-text-fill: white;
+
+}
+
+Tab{
+   -fx-font-size: 10;
+}
+
+JFXTextField.txtTim{
+    -fx-padding: 5 10 5 10;
+    -fx-text-fill: white;
+    -fx-font-size: 11;
+    -fx-font-family: Tahoma;
+    -fx-font-weight: bold;
+ 
+
+}
+
+HBox{
+    -fx-spacing: 5;
+}
+

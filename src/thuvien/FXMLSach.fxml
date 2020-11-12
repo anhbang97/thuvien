@@ -1,0 +1,1653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ProgressIndicator?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="753.0" prefWidth="1366.0" stylesheets="@styleSach.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="thuvien.SachController">
+   <children>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+         <children>
+            <HBox fx:id="btnTraSach" alignment="CENTER_LEFT" prefHeight="91.0" prefWidth="1369.0" styleClass="first">
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="BOOK" onMouseClicked="#homeHandler" size="70" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <VBox alignment="CENTER" prefHeight="80.0" prefWidth="117.0">
+                     <children>
+                        <Text fill="WHITE" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="THU VIEN">
+                           <font>
+                              <Font name="Tahoma" size="28.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Label text="www.thuvien.com" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="10.0" right="130.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <ImageView fx:id="imgdong" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../IMG/icons8-encashment-car-100.png" />
+                     </image>
+                  </ImageView>
+                  <StackPane prefHeight="91.0" prefWidth="239.0">
+                     <children>
+                        <HBox fx:id="hboxMuonTra" alignment="CENTER" prefHeight="91.0" prefWidth="216.0" visible="false">
+                           <children>
+                              <JFXButton fx:id="btnCNMuon" contentDisplay="TOP" style="-fx-background-color: #33cc00;" styleClass="buttonChucNang" text="Muợn sách">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../IMG/plus-5-24.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="btnCNTra" contentDisplay="TOP" style="-fx-background-color: #ff0000;" styleClass="buttonChucNang" text="Trả sách">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../IMG/minus-7-16.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="hboxThemXoaSua" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" visible="false">
+                           <children>
+                              <JFXButton fx:id="btnThem" contentDisplay="TOP" graphicTextGap="10.0" style="-fx-background-color: #33cc00;" styleClass="buttonChucNang" text="Thêm">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../IMG/plus-5-24.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="btnSua" centerShape="false" contentDisplay="TOP" graphicTextGap="10.0" style="-fx-background-color: #ff9900;" styleClass="buttonChucNang" text="Sửa">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../IMG/settings-24-24.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton fx:id="btnXoa" contentDisplay="TOP" graphicTextGap="10.0" onAction="#xoaHadler" style="-fx-background-color: #ff0000;" styleClass="buttonChucNang" text="Xóa">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../IMG/delete-24.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="400.0" />
+                     </HBox.margin>
+                  </StackPane>
+                  <JFXButton fx:id="btnDangXuat" onMouseClicked="#thoatHandler" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #00BD00;" text="Đăng xuất">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../IMG/icons8-exit-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="90.0" right="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox prefHeight="667.0" prefWidth="1369.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="645.0" prefWidth="235.0" style="-fx-background-color: #266B9B;">
+                     <children>
+                        <JFXButton fx:id="btnSach" alignment="TOP_LEFT" graphicTextGap="10.0" prefHeight="34.0" prefWidth="240.0" text="Sách">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/sach.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="btnDocGia" alignment="TOP_LEFT" graphicTextGap="10.0" prefHeight="30.0" prefWidth="240.0" text="Độc Giả">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/docgia.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnMuonTra" alignment="TOP_LEFT" graphicTextGap="10.0" prefHeight="17.0" prefWidth="240.0" text="Mượn Trả Sách">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/muontra.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnTheDocGia" alignment="TOP_LEFT" graphicTextGap="10.0" prefHeight="15.0" prefWidth="240.0" text="Thẻ Độc Giả">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/thedocgia.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnMatSach" alignment="TOP_LEFT" graphicTextGap="10.0" prefHeight="30.0" prefWidth="240.0" text="Mất Sách">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/matsach.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnNhanVien" alignment="TOP_LEFT" graphicTextGap="10.0" prefHeight="32.0" prefWidth="240.0" text="Nhân Viên">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/nhanvien.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnThongKe" alignment="TOP_LEFT" graphicTextGap="10.0" prefHeight="34.0" prefWidth="240.0" text="Thống Kê">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/baocao.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="btnTaiKhoan" alignment="TOP_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="474.0" prefHeight="32.0" prefWidth="240.0" text="Tài khoản">
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/icons8-key-48.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </JFXButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <StackPane alignment="CENTER_LEFT">
+                     <children>
+                        <VBox fx:id="vboxHome" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="438.0" prefWidth="1127.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="479.0" prefWidth="412.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="409.0" style="-fx-background-color: #5FBD8F;">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="394.0" text="Thông tin cá nhân" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../IMG/user_access-512.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" top="19.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1127.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="164.0" text="Mã nhân viên" />
+                                                <JFXTextField fx:id="txtMaNVDangNhap" disable="true" prefHeight="25.0" prefWidth="335.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1127.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="164.0" text="Họ và tên" />
+                                                <JFXTextField fx:id="txtHTDangNhap" disable="true" prefHeight="25.0" prefWidth="335.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1127.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="164.0" text="Giới tính" />
+                                                <JFXTextField fx:id="txtGTDangNhap" disable="true" prefHeight="25.0" prefWidth="335.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1127.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="164.0" text="Ngày Sinh" />
+                                                <JFXTextField fx:id="txtNSDangNhap" disable="true" prefHeight="25.0" prefWidth="335.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1127.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="164.0" text="Địa chỉ" />
+                                                <JFXTextField fx:id="txtDCDangNhap" disable="true" prefHeight="25.0" prefWidth="335.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1127.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="164.0" text="Tài khoản truy cập" />
+                                                <JFXTextField fx:id="txtTKDangNhap" disable="true" prefHeight="25.0" prefWidth="335.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1127.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="164.0" text="Chức vụ" />
+                                                <JFXTextField fx:id="txtCVDangNhap" disable="true" prefHeight="25.0" prefWidth="335.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="529.0" prefWidth="314.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="234.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../IMG/rsz_db4c1308-488x325.jpg" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <ImageView fitHeight="290.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../IMG/dieu-gi-tao-nen-su-khac-biet-cua-dh-fpt_31.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="529.0" prefWidth="278.0" spacing="20.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                       <children>
+                                          <ImageView fitHeight="234.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../IMG/img20180815112744111.jpg" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <ImageView fitHeight="266.0" fitWidth="314.0" layoutX="10.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../IMG/img20180815112745588.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="202.0" prefWidth="1127.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="137.0" prefWidth="139.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../AnhSach/nhagiakim.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Nhà giả kim">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="137.0" prefWidth="139.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../AnhSach/doraemon.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Đoraemon">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="154.0" layoutY="10.0" prefHeight="137.0" prefWidth="139.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../AnhSach/conan.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Conan">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="298.0" layoutY="10.0" prefHeight="137.0" prefWidth="139.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../AnhSach/LT01.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Dế mèn ">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="442.0" layoutY="10.0" prefHeight="137.0" prefWidth="139.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../AnhSach/dacnhantam.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Đắc nhân tâm">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="586.0" layoutY="10.0" prefHeight="137.0" prefWidth="139.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../AnhSach/tuoitredanggiabaonhieu.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Tuổi trẻ đáng giá ?">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="730.0" layoutY="10.0" prefHeight="137.0" prefWidth="139.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../AnhSach/cafecungtony.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label text="Cà phê Tony">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <JFXButton fx:id="btnXemThem" text="Xem thêm">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vboxSach" alignment="CENTER" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="1048.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Thông Tin Sách" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox fx:id="hboxSach" alignment="CENTER_LEFT" prefHeight="133.0" prefWidth="1092.0" style="-fx-background-color: #FAFAFA;">
+                                 <children>
+                                    <StackPane>
+                                       <children>
+                                          <ImageView fx:id="imgAnh" fitHeight="128.0" fitWidth="131.0" onMouseClicked="#themAnhHadler" pickOnBounds="true" preserveRatio="true">
+                                             <StackPane.margin>
+                                                <Insets left="10.0" />
+                                             </StackPane.margin>
+                                          </ImageView>
+                                          <JFXButton fx:id="btnThemAnh" onMouseClicked="#themAnhHadler" text="Thêm ảnh" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </StackPane>
+                                    <VBox alignment="CENTER" prefHeight="133.0" prefWidth="166.0" spacing="10.0">
+                                       <children>
+                                          <JFXTextField fx:id="txtMaSach" promptText="Mã sách" />
+                                          <JFXComboBox fx:id="txtTheLoai" prefHeight="31.0" prefWidth="227.0" promptText="Thể loại" />
+                                          <JFXTextField fx:id="txtNhaXuatBan" layoutX="10.0" layoutY="85.0" promptText="Nhà xuất bản" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="133.0" prefWidth="267.0" spacing="10.0">
+                                       <children>
+                                          <JFXTextField fx:id="txtTenSach" promptText="Tên sách" />
+                                          <JFXTextField fx:id="txtTacGia" promptText="Tác giả" />
+                                          <JFXTextField fx:id="txtSoLuong" layoutX="10.0" layoutY="110.0" promptText="Số lượng" />
+                                       </children>
+                                    </VBox>
+                                    <JFXButton fx:id="btnLuu" onAction="#luuThemSachHadler" prefHeight="44.0" prefWidth="69.0" style="-fx-background-color: #43556A; -fx-text-fill: #FFFFFF;" styleClass="buttonQuayLai" text="Lưu">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="40.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" right="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="37.0" prefWidth="1119.0" spacing="5.0" style="-fx-background-color: #266B9B;">
+                                 <children>
+                                    <JFXTextField fx:id="txtTim" focusColor="WHITE" prefHeight="18.0" prefWidth="495.0" style="-fx-text-fill: #FFFFFF;" styleClass="txtTim" unFocusColor="WHITE">
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <FontAwesomeIconView fill="#f8f8f8" glyphName="SEARCH" size="24" stroke="#ffffffbf" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </FontAwesomeIconView>
+                                    <JFXComboBox fx:id="cbTim" focusColor="WHITE" prefHeight="30.0" prefWidth="129.0" unFocusColor="WHITE" visible="false">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                    </JFXComboBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="465.0" prefWidth="1124.0" style="-fx-background-color: #FAFAFA;">
+                                 <children>
+                                    <StackPane prefHeight="138.0" prefWidth="1119.0">
+                                       <children>
+                                          <TableView fx:id="tbvSach" onMouseClicked="#chonSachHadler" prefHeight="450.0" prefWidth="895.0" tableMenuButtonVisible="true">
+                                             <columns>
+                                                <TableColumn fx:id="tbcMaSach" prefWidth="79.0" sortable="false" text="Mã Sách" />
+                                                <TableColumn fx:id="tbcTenSach" prefWidth="178.0" sortable="false" text="Tên Sách" />
+                                                <TableColumn fx:id="tbcTacGia" prefWidth="127.0" sortable="false" text="Tác Giả" />
+                                                <TableColumn fx:id="tbcTheLoai" prefWidth="117.0" sortable="false" text="Thể Loại" />
+                                                <TableColumn fx:id="tbcNxb" prefWidth="237.66668701171875" sortable="false" text="Nhà Xuất Bản" />
+                                                <TableColumn fx:id="tbcSoLuong" prefWidth="31.33331298828125" sortable="false" text="Số Lượng" visible="false" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                             <styleClass>
+                                                <String fx:value="table" />
+                                                <String fx:value="table-row-cell" />
+                                                <String fx:value="table-view" />
+                                             </styleClass>
+                                          </TableView>
+                                       </children>
+                                    </StackPane>
+                                    <VBox prefHeight="428.0" prefWidth="453.0">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="116.0" prefWidth="219.0" style="-fx-background-color: #07A2D3;">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </VBox.margin>
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="227.0" text="Số lượng:" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="lbSLSach" text="11" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="42.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="115.0" prefWidth="219.0" style="-fx-background-color: #07A7A7;">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="227.0" text="Thể loại:" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="17.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label fx:id="lbTheLoai" text="4" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="42.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vboxDocGia" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="1048.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Thông Tin Độc Giả" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="hboxDocGia" alignment="CENTER_LEFT" prefHeight="133.0" prefWidth="1124.0" style="-fx-background-color: #FAFAFA;">
+                                 <children>
+                                    <ImageView fitHeight="128.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../IMG/Student_Reading-512.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <VBox alignment="CENTER" prefHeight="137.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <JFXTextField fx:id="txtMaDocGia" disable="true" promptText="Mã độc giả" text="Mã độc giả" />
+                                          <JFXDatePicker fx:id="txtNgaySinh" prefHeight="25.0" prefWidth="217.0" promptText="Ngày sinh" />
+                                          <HBox spacing="20.0">
+                                             <children>
+                                                <JFXRadioButton fx:id="rdNam" selected="true" text="Nam">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="gioitinh" />
+                                                   </toggleGroup>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton fx:id="rdNu" text="Nữ" toggleGroup="$gioitinh">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="150.0" prefWidth="292.0" spacing="10.0">
+                                       <children>
+                                          <JFXTextField fx:id="txtTenDocGia" promptText="Tên độc giả" text="Tên độc giả">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                          <JFXComboBox fx:id="txtTheDocGia" prefHeight="25.0" prefWidth="322.0" promptText="Thẻ độc giả" />
+                                          <JFXTextField fx:id="txtDiaChi" layoutX="10.0" layoutY="110.0" promptText="Địa chỉ" />
+                                       </children>
+                                    </VBox>
+                                    <JFXButton fx:id="btnLuuDocGia" onAction="#luuThemDocGiaHadler" prefHeight="44.0" prefWidth="69.0" style="-fx-border-color: #236DE5;" styleClass="buttonQuayLai" text="Lưu">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="40.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="37.0" prefWidth="1119.0" spacing="5.0" style="-fx-background-color: #266B9B;">
+                                 <children>
+                                    <JFXTextField fx:id="txtTimDocGia" prefHeight="16.0" prefWidth="589.0" styleClass="txtTim" unFocusColor="WHITE">
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXTextField>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="24" stroke="#ffffffbf" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </FontAwesomeIconView>
+                                    <JFXComboBox fx:id="cbDocGia" prefHeight="30.0" prefWidth="129.0" visible="false">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                    </JFXComboBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <StackPane prefHeight="465.0">
+                                 <children>
+                                    <TableView fx:id="tbvDocGia" editable="true" onMouseClicked="#chonDocGiaHadler" prefHeight="450.0" prefWidth="1119.0" tableMenuButtonVisible="true">
+                                       <columns>
+                                          <TableColumn fx:id="tbcMaDocGia" prefWidth="159.99998474121094" text="Mã Độc Giả" />
+                                          <TableColumn fx:id="tbcTenDocGia" prefWidth="212.0" text="Tên Độc Giả" />
+                                          <TableColumn fx:id="tbcNgaySinh" prefWidth="168.0" text="Ngày Sinh" />
+                                          <TableColumn fx:id="tbcGioiTinh" prefWidth="204.0" text="Giới Tính" />
+                                          <TableColumn fx:id="tbcDiaChi" prefWidth="237.66668701171875" text="Địa Chỉ" />
+                                          <TableColumn fx:id="tbcTheDocGia" prefWidth="31.33331298828125" text="Mã Thẻ" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                       <styleClass>
+                                          <String fx:value="table" />
+                                          <String fx:value="table-row-cell" />
+                                          <String fx:value="table-view" />
+                                       </styleClass>
+                                    </TableView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vboxNhanVien" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="1048.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Thông Tin Nhân Viên" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="hboxNhanVien" alignment="CENTER_LEFT" prefHeight="133.0" prefWidth="1112.0" style="-fx-background-color: #FAFAFA;">
+                                 <children>
+                                    <ImageView fitHeight="128.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../IMG/user_access-512.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <VBox alignment="CENTER" prefHeight="137.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <JFXTextField fx:id="txtMaNhanVien" disable="true" promptText="Mã nhân viên" />
+                                          <JFXDatePicker fx:id="txtNgaySinhNV" prefHeight="25.0" prefWidth="217.0" promptText="Ngày sinh" />
+                                          <HBox spacing="20.0">
+                                             <children>
+                                                <JFXRadioButton fx:id="rdNamNV" selected="true" text="Nam">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="gioitinhNV" />
+                                                   </toggleGroup>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton fx:id="rdNuNV" text="Nữ" toggleGroup="$gioitinhNV">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </JFXRadioButton>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="150.0" prefWidth="292.0" spacing="10.0">
+                                       <children>
+                                          <JFXTextField fx:id="txtTenNhanVien" promptText="Tên nhân viên">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </JFXTextField>
+                                          <JFXComboBox fx:id="txtTaiKhoan" prefHeight="25.0" prefWidth="322.0" promptText="Tài khoản" />
+                                          <JFXTextField fx:id="txtDiaChiNV" layoutX="10.0" layoutY="110.0" promptText="Địa chỉ" />
+                                       </children>
+                                    </VBox>
+                                    <JFXButton fx:id="btnLuuThemNV" onAction="#luuThemNhanVienHadler" prefHeight="44.0" prefWidth="69.0" style="-fx-border-color: #236DE5;" styleClass="buttonQuayLai" text="Lưu">
+                                       <HBox.margin>
+                                          <Insets left="50.0" top="40.0" />
+                                       </HBox.margin>
+                                    </JFXButton>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="37.0" prefWidth="1118.0" spacing="5.0" style="-fx-background-color: #266B9B;">
+                                 <children>
+                                    <JFXTextField fx:id="txtTimNhanVien" focusColor="WHITE" prefHeight="22.0" prefWidth="589.0" styleClass="txtTim" unFocusColor="WHITE">
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXTextField>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="24" stroke="#ffffffbf" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </FontAwesomeIconView>
+                                    <JFXComboBox fx:id="cbNhanVien" prefHeight="21.0" prefWidth="129.0">
+                                       <HBox.margin>
+                                          <Insets left="40.0" />
+                                       </HBox.margin>
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                    </JFXComboBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <StackPane prefHeight="465.0">
+                                 <children>
+                                    <TableView fx:id="tbvNhanVien" editable="true" onMouseClicked="#chonNhanVienHadler" prefHeight="450.0" prefWidth="1119.0" tableMenuButtonVisible="true">
+                                       <columns>
+                                          <TableColumn fx:id="tbcMaNhanVien" prefWidth="159.99998474121094" text="Mã Nhân Viên" />
+                                          <TableColumn fx:id="tbcTenNhanVien" prefWidth="212.0" text="Tên Nhân Viên" />
+                                          <TableColumn fx:id="tbcNgaySinhNV" prefWidth="168.0" text="Ngày Sinh" />
+                                          <TableColumn fx:id="tbcGioiTinhNV" prefWidth="204.0" text="Giới Tính" />
+                                          <TableColumn fx:id="tbcDiaChiNV" prefWidth="237.66668701171875" text="Địa Chỉ" />
+                                          <TableColumn fx:id="tbcTaiKhoan" prefWidth="31.33331298828125" text="Tài Khoản" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                       <styleClass>
+                                          <String fx:value="table" />
+                                          <String fx:value="table-row-cell" />
+                                          <String fx:value="table-view" />
+                                       </styleClass>
+                                    </TableView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="5.0" />
+                                 </VBox.margin>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vboxMuon" alignment="CENTER" prefHeight="628.0" prefWidth="1124.0" style="-fx-background-color: #FFFFFF;" visible="false" StackPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="1119.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Thông Tin Mượn Trả Sách" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="596.0" prefWidth="1084.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="548.0" prefWidth="798.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1118.0" spacing="5.0">
+                                             <children>
+                                                <JFXTextField fx:id="txtTimSachMuon" prefHeight="22.0" prefWidth="471.0" promptText="Tìm">
+                                                   <padding>
+                                                      <Insets bottom="5.0" />
+                                                   </padding>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </JFXTextField>
+                                                <FontAwesomeIconView fill="#4d73ee" glyphName="SEARCH" size="24" stroke="#045fd6bf" textAlignment="CENTER">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </FontAwesomeIconView>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <StackPane prefHeight="494.0" prefWidth="797.0">
+                                             <children>
+                                                <TableView fx:id="tbvSachMuon" editable="true" onMouseClicked="#chonSachMuonHadler" prefHeight="520.0" prefWidth="795.0" tableMenuButtonVisible="true">
+                                                   <columns>
+                                                      <TableColumn fx:id="tbcMaSachMuon" prefWidth="79.0" text="Mã Sách" />
+                                                      <TableColumn fx:id="tbcTenSachMuon" prefWidth="178.0" text="Tên Sách" />
+                                                      <TableColumn fx:id="tbcTacGiaMuon" prefWidth="127.0" text="Tác Giả" />
+                                                      <TableColumn fx:id="tbcTheLoaiMuon" prefWidth="117.0" text="Thể Loại" />
+                                                      <TableColumn fx:id="tbcNxbMuon" prefWidth="237.66668701171875" text="Nhà Xuất Bản" />
+                                                      <TableColumn fx:id="tbcSoLuongMuon" prefWidth="31.33331298828125" text="Số Lượng" />
+                                                   </columns>
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                   <styleClass>
+                                                      <String fx:value="table" />
+                                                      <String fx:value="table-row-cell" />
+                                                      <String fx:value="table-view" />
+                                                   </styleClass>
+                                                   <StackPane.margin>
+                                                      <Insets left="5.0" right="5.0" />
+                                                   </StackPane.margin>
+                                                </TableView>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="468.0" prefWidth="282.0" spacing="10.0" style="-fx-background-color: #F2F2F2;">
+                                       <children>
+                                          <HBox fx:id="hboxMuon" alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="281.0" style="-fx-background-color: #266B9B;">
+                                             <children>
+                                                <Label text="Mượn Sách" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="15.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <ImageView fx:id="imgAnhMuon" fitHeight="154.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../IMG/LT01.jpg" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" top="10.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <Label fx:id="txtTenSachMuon" text="Label">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXTextField fx:id="txtMaDocGiaMuon" promptText="Số thẻ độc giả">
+                                             <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin></JFXTextField>
+                                          <JFXTextField fx:id="txtMaSachMuon" disable="true" promptText="Mã sách">
+                                             <padding>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </padding>
+                                             <VBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </VBox.margin></JFXTextField>
+                                          <HBox prefHeight="20.0" prefWidth="278.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="104.0" text="Ngày mượn">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <JFXDatePicker fx:id="dateNgayMuon" disable="true" prefHeight="35.0" prefWidth="157.0" promptText="Ngày mượn" showWeekNumbers="true">
+                                                   <padding>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </padding>
+                                                </JFXDatePicker>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="31.0" prefWidth="278.0">
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="104.0" text="Ngày hết hạn">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <JFXDatePicker fx:id="dateNgayHetHan" disable="true" prefHeight="35.0" prefWidth="157.0" promptText="Ngày hết hạn " showWeekNumbers="true">
+                                                   <padding>
+                                                      <Insets bottom="5.0" top="5.0" />
+                                                   </padding>
+                                                </JFXDatePicker>
+                                             </children>
+                                          </HBox>
+                                          <JFXButton fx:id="btnMuon" onAction="#muonHandler" style="-fx-background-color: #236DE5; -fx-text-fill: #FFFFFF;" text="Mượn sách">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                                             </VBox.margin>
+                                          </JFXButton>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <effect>
+                                    <DropShadow color="#655959" />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" left="20.0" right="20.0" top="30.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                           <StackPane.margin>
+                              <Insets right="5.0" />
+                           </StackPane.margin>
+                        </VBox>
+                        <VBox fx:id="vboxTra" prefHeight="200.0" prefWidth="100.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="1119.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Thông Tin Mượn Trả Sách" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1124.0" spacing="5.0">
+                                 <children>
+                                    <JFXTextField fx:id="txtTimSachTra" prefHeight="22.0" prefWidth="471.0" promptText="Tìm">
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXTextField>
+                                    <FontAwesomeIconView fill="#4d73ee" glyphName="SEARCH" size="24" stroke="#045fd6bf" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </FontAwesomeIconView>
+                                    <JFXToggleButton fx:id="tgbtTra" text="Tất cả  " />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <TableView fx:id="tbvMuonTra" onMouseClicked="#chon" prefHeight="520.0" prefWidth="802.0" tableMenuButtonVisible="true">
+                                 <columns>
+                                    <TableColumn fx:id="tbcMaMuon" prefWidth="110.0" text="Mã phiếu mượn" />
+                                    <TableColumn fx:id="tbcSoTheMuon" prefWidth="136.0" text="Số thẻ độc giả" />
+                                    <TableColumn fx:id="tbcMaSachTra" prefWidth="105.0" text="Mã sách" />
+                                    <TableColumn fx:id="tbcTenSachTra" prefWidth="160.0" text="Tên sách" />
+                                    <TableColumn fx:id="tbcNgayMuon" prefWidth="86.0" text="Ngày mượn" />
+                                    <TableColumn fx:id="tbcNgayHetHan" prefWidth="75.0" text="Ngày hết hạn " visible="false" />
+                                    <TableColumn fx:id="tbcNgayTra" prefWidth="141.0" text="Ngày trả" />
+                                    <TableColumn fx:id="tbcTienPhat" prefWidth="105.0" text="Tiền phạt" />
+                                    <TableColumn fx:id="tbcGhiChu" prefWidth="118.0" text="Ghi chú" />
+                                    <TableColumn fx:id="tbcTenNV" prefWidth="128.0" text="Tên nhân viên" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="1127.0">
+                                 <children>
+                                    <JFXButton fx:id="btnTra" disable="true" onAction="#chonTraHandler" prefHeight="29.0" prefWidth="97.0" text="Trả" />
+                                    <JFXButton fx:id="btnBaoMatSach" onAction="#baoMatSachHandler" onMouseClicked="#chon" text="Báo mất sách" visible="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vboxTheDocGia" prefHeight="200.0" prefWidth="100.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="1119.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Quản lý thẻ độc giả" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1124.0" spacing="5.0">
+                                 <children>
+                                    <JFXTextField fx:id="txtTimTheDocGia" prefHeight="22.0" prefWidth="471.0" promptText="Tìm">
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXTextField>
+                                    <FontAwesomeIconView fill="#4d73ee" glyphName="SEARCH" size="24" stroke="#045fd6bf" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </FontAwesomeIconView>
+                                    <JFXToggleButton fx:id="tgbtTra1" text="Tất cả  " />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="533.0" prefWidth="1127.0">
+                                 <children>
+                                    <TableView fx:id="tbvTheDocGia" onMouseClicked="#chonTheDocGiaHandler" prefHeight="425.0" prefWidth="554.0" tableMenuButtonVisible="true">
+                                       <columns>
+                                          <TableColumn fx:id="tbcMaTheDocGia" prefWidth="217.0" text="Số thẻ" />
+                                          <TableColumn fx:id="tbcHSDTheDocGia" prefWidth="428.0" text="Hạn sử dụng" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <VBox alignment="TOP_CENTER" prefHeight="529.0" prefWidth="274.0" spacing="20.0" style="-fx-border-color: #246694;">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="307.0" style="-fx-background-color: #266B9B;">
+                                             <children>
+                                                <Label text="Thông tin thẻ độc giả" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="15.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../IMG/16.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <JFXTextField fx:id="txtSoTheDocGia" disable="true" promptText="Số thẻ">
+                                             <VBox.margin>
+                                                <Insets left="20.0" right="20.0" />
+                                             </VBox.margin></JFXTextField>
+                                          <JFXDatePicker fx:id="txtNgaykt" disable="true" prefHeight="31.0" prefWidth="380.0" promptText="Ngày hết hạn">
+                                             <VBox.margin>
+                                                <Insets left="20.0" right="20.0" />
+                                             </VBox.margin></JFXDatePicker>
+                                          <JFXButton fx:id="btnLuuThe" disable="true" onAction="#luuTheHadler" text="Lưu" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="529.0" prefWidth="254.0" spacing="10.0">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="116.0" prefWidth="208.0" style="-fx-background-color: #07A7A7;">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="227.0" text="Số lượng" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="17.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lbSLSach1" alignment="CENTER" prefHeight="62.0" prefWidth="260.0" text="11" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="42.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin></VBox>
+                                          <VBox alignment="CENTER" layoutX="10.0" layoutY="217.0" prefHeight="116.0" prefWidth="208.0" style="-fx-background-color: #E86B3D;">
+                                             <children>
+                                                <Label prefHeight="21.0" prefWidth="227.0" text="Thẻ hết hạn" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="17.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="lbSLSach11" alignment="CENTER" prefHeight="62.0" prefWidth="260.0" text="5" textAlignment="CENTER" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="42.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="5.0" right="5.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="1127.0">
+                                 <children>
+                                    <JFXButton fx:id="btnThemThe" text="Thêm">
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="20.0" />
+                                       </HBox.margin></JFXButton>
+                                    <JFXButton fx:id="btnGiaHan" text="Gia hạn" visible="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vboxTaiKhoan" prefHeight="200.0" prefWidth="100.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="1119.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Quản lý tài khoản" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1124.0" spacing="5.0">
+                                 <children>
+                                    <JFXTextField fx:id="txtTimTaiKhoan" prefHeight="22.0" prefWidth="471.0" promptText="Tìm">
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXTextField>
+                                    <FontAwesomeIconView fill="#4d73ee" glyphName="SEARCH" size="24" stroke="#045fd6bf" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </FontAwesomeIconView>
+                                    <JFXToggleButton fx:id="tgbtTra11" text="Tất cả  " />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="512.0" prefWidth="1127.0">
+                                 <children>
+                                    <TableView fx:id="tbvTaiKhoan" onMouseClicked="#chonTaiKhoanHandler" prefHeight="501.0" prefWidth="755.0" tableMenuButtonVisible="true">
+                                       <columns>
+                                          <TableColumn fx:id="tbcTentk" prefWidth="217.0" text="Tên tài khoản" />
+                                          <TableColumn fx:id="tbcMatKhau" prefWidth="428.0" text="Mật khẩu" />
+                                          <TableColumn fx:id="tbcSalt" prefWidth="428.0" text="Salt" />
+                                          <TableColumn fx:id="tbcQTC" prefWidth="428.0" text="Quyền truy cập" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <StackPane prefHeight="532.0" prefWidth="342.0">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="532.0" prefWidth="264.0" spacing="20.0">
+                                             <children>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="307.0" style="-fx-background-color: #266B9B;">
+                                                   <children>
+                                                      <Label text="Thông tin tài khoản" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Tahoma Bold" size="15.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../IMG/16.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <JFXTextField fx:id="txtTaiKhoan2" promptText="Tài khoản" />
+                                                <JFXTextField fx:id="txtMatKhau2" layoutX="10.0" layoutY="281.0" promptText="Mật khẩu" text="Mật khẩu" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <RadioButton fx:id="rdQL" mnemonicParsing="false" text="Quản lý ">
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="quyenTC" />
+                                                         </toggleGroup>
+                                                      </RadioButton>
+                                                      <RadioButton fx:id="rdNV" mnemonicParsing="false" text="Nhân viên" toggleGroup="$quyenTC" />
+                                                   </children>
+                                                </HBox>
+                                                <JFXButton fx:id="btnLuutk" onAction="#luuTaiKhoanHadler" text="Lưu" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="1124.0">
+                                 <children>
+                                    <JFXButton fx:id="btnTaotk" text="Tạo tài khoản" />
+                                    <JFXButton fx:id="btnDoitk" text="Đổi thông tin tài khoản" visible="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vboxMatSach" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="1119.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Thông Tin Ghi Nhận Mất Sách" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1124.0" spacing="5.0">
+                                 <children>
+                                    <JFXTextField fx:id="txtTimTaiKhoan1" prefHeight="22.0" prefWidth="471.0" promptText="Tìm">
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXTextField>
+                                    <FontAwesomeIconView fill="#4d73ee" glyphName="SEARCH" size="24" stroke="#045fd6bf" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </FontAwesomeIconView>
+                                    <JFXToggleButton fx:id="tgbtTra111" text="Tất cả  " />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="573.0" prefWidth="1124.0">
+                                 <children>
+                                    <TableView fx:id="tbvMatSach" prefHeight="573.0" prefWidth="1003.0" tableMenuButtonVisible="true">
+                                       <columns>
+                                          <TableColumn fx:id="tbcMaMatSach" prefWidth="75.0" text="Mã mất sách" visible="false" />
+                                          <TableColumn fx:id="tbcMaPhieuMuon" prefWidth="217.0" text="Mã phiếu mượn " />
+                                          <TableColumn fx:id="tbcMaSachMat" prefWidth="428.0" text="Mã sách" />
+                                          <TableColumn fx:id="tbcTenSachMat" prefWidth="428.0" text="Tên sách" />
+                                          <TableColumn fx:id="tbcMaTheMatSach" prefWidth="428.0" text="Mã thẻ độc giả" />
+                                          <TableColumn fx:id="tbcNgayGhiNhan" prefWidth="75.0" text="Ngày ghi nhận" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <StackPane prefHeight="532.0" prefWidth="342.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vboxThongKe" prefHeight="200.0" prefWidth="100.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="1119.0" style="-fx-background-color: #00A1A1;">
+                                 <children>
+                                    <Label prefHeight="19.0" text="Thống kê" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma Bold" size="15.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="368.0" prefWidth="1127.0">
+                                 <children>
+                                    <LineChart fx:id="chart" prefHeight="396.0" prefWidth="602.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </LineChart>
+                                    <VBox prefHeight="403.0" prefWidth="488.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="622.0" text="Trả Sách">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox prefHeight="427.0" prefWidth="513.0">
+                                             <children>
+                                                <AnchorPane fx:id="a" prefHeight="343.0" prefWidth="500.0">
+                                                   <children>
+                                                      <PieChart fx:id="pieChart" prefHeight="322.0" prefWidth="500.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="229.0" prefWidth="1127.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #0F9D58;">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="29.0" prefWidth="188.0" text="Tháng" textFill="WHITE">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin></Label>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ProgressIndicator fx:id="progressIndicator" prefHeight="112.0" prefWidth="95.0" progress="1.0" radius="70.0">
+                                                   <StackPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </StackPane.margin></ProgressIndicator>
+                                                <Label fx:id="label" text="Label" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #EBA12A;">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="17.0" prefWidth="192.0" text="Quý" textFill="WHITE">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin></Label>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ProgressIndicator fx:id="progressIndicator1" progress="1.0" radius="70.0">
+                                                   <StackPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </StackPane.margin>
+                                                </ProgressIndicator>
+                                                <Label fx:id="label1" text="Label" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" layoutX="203.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #E86B3D;">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="192.0" text="Ngày" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </VBox.margin></Label>
+                                          <StackPane prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <ProgressIndicator fx:id="progressIndicator3" progress="1.0" radius="70.0">
+                                                   <StackPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </StackPane.margin>
+                                                </ProgressIndicator>
+                                                <Label fx:id="label3" text="Label" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </StackPane>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="229.0" prefWidth="515.0" spacing="20.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="515.0" style="-fx-background-color: #266B9B;" text="Sách được yêu thích nhất" textFill="WHITE">
+                                             <font>
+                                                <Font name="Tahoma Bold" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox prefHeight="30.0" prefWidth="308.0">
+                                             <children>
+                                                <Label fx:id="lbSach1" prefHeight="17.0" prefWidth="113.0" text="Label" />
+                                                <JFXProgressBar fx:id="Sach1" prefHeight="30.0" prefWidth="261.0" progress="0.0">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </JFXProgressBar>
+                                                <Label fx:id="lbTiLeSach1" prefHeight="17.0" prefWidth="35.0" text="Label">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin></Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="75.0" prefHeight="30.0" prefWidth="308.0">
+                                             <children>
+                                                <Label fx:id="lbSach2" prefHeight="17.0" prefWidth="113.0" text="Label" />
+                                                <JFXProgressBar fx:id="Sach2" prefHeight="30.0" prefWidth="261.0" progress="0.0">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </JFXProgressBar>
+                                                <Label fx:id="lbTiLeSach2" text="Label">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin></Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="75.0" prefHeight="30.0" prefWidth="308.0">
+                                             <children>
+                                                <Label fx:id="lbSach3" prefHeight="17.0" prefWidth="113.0" text="Label" />
+                                                <JFXProgressBar fx:id="Sach3" prefHeight="30.0" prefWidth="261.0" progress="0.0">
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </JFXProgressBar>
+                                                <Label fx:id="lbTiLeSach3" text="Label">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin></Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="30.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</StackPane>
